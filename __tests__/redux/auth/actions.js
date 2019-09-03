@@ -13,6 +13,11 @@ describe('testing auth actions', () => {
     await store.dispatch(actionCreators.init({}));
     expect(store.getActions()).toEqual(expectedActions);
   });
+  test('test AUTH_INIT 2', async () => {
+    const expectedActions = [{ type: actions.AUTH_INIT, target: 'currentUser', payload: {} }];
+    await store.dispatch(actionCreators.init({}));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
   test('test LOGIN SUCCESS AND INJECTIONS', async () => {
     api.setHeader = jest.fn();
     AsyncStorage.setItem = jest.fn().mockReturnValue(null);
